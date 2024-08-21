@@ -1,8 +1,15 @@
 [
-fx_TableRemoveNullColumns = (tbl) =>
+fxTableRemoveNullColumns = (tbl) =>
     [
     nms = Table.ColumnNames(tbl),
     null_cols = List.RemoveNulls( List.Transform( nms, (x)=> if List.NonNullCount(Table.Column(tbl,x)) = 0 then x else null )),
     to = Table.RemoveColumns(tbl,null_cols)
     ][to]
+
+fxTableTransformColumn = (tbl,col_name,func) => 
+        [
+            a = Table.AddColumn(tbl,"tmp",func),
+            b = Table.RemoveColumns (a,col_name),
+            to = Table.RenameColumns(b,{"tmp",col_name})
+        ][to]
 ]
