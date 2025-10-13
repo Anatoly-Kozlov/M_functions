@@ -18,6 +18,6 @@
 
 1.  Импортируйте библиотеку с функциями в файл. Создайте пустой запрос с именем "my_pack" и введите формулу
 `= Expression.Evaluate(Text.FromBinary(Web.Contents("https://raw.githubusercontent.com/Anatoly-Kozlov/M_functions/main/My_pack")),#shared)`
-2. Обращение к фунциями происходит по формуле в виде `my_pack[имя_функции]()`
+2. Теперь обращаться к функциям из библиотекм можно по формуле в виде `my_pack[имя_функции]()`
 
 
